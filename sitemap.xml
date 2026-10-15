@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://nscreativestudios.com/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <image:image><image:loc>https://nscreativestudios.com/media/about-nayara.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/cahari-facial.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/cahari-teaser.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/hero-boston-common.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/hero-cahari.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/hero-prime.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/hero-spg-salmon.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/ldv-scent.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/prime-aldi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/prime-kitchen.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/serve-grad.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/serve-party.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/serve-photo-IMG_0970.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/spg-delivery.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/spg-function.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nscreativestudios.com/media/spg-kitchen.jpg</image:loc></image:image>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/spg-kitchen.jpg</video:thumbnail_loc>
+      <video:title>Everything is carefully prepared · Sudbury Point Grill</video:title>
+      <video:description>Kitchen reel by NS Creative Studio for Sudbury Point Grill, a restaurant client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/spg-kitchen.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/hero-boston-common.jpg</video:thumbnail_loc>
+      <video:title>Boston COMMON Event · La Dolce Vita</video:title>
+      <video:description>Event recap by NS Creative Studio for La Dolce Vita, a event client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/ldv-event.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/cahari-facial.jpg</video:thumbnail_loc>
+      <video:title>The facial ritual · Cahari Beauty Spa</video:title>
+      <video:description>Treatment reel by NS Creative Studio for Cahari Beauty Spa, a lifestyle client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/cahari-facial.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/prime-aldi.jpg</video:thumbnail_loc>
+      <video:title>A clean store before opening day · Prime Commercial Cleaning</video:title>
+      <video:description>Voice-over reel by NS Creative Studio for Prime Commercial Cleaning, a brand client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/prime-aldi.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/serve-party.jpg</video:thumbnail_loc>
+      <video:title>Hosting the party · Serve&amp;Stir</video:title>
+      <video:description>Party recap by NS Creative Studio for Serve&amp;Stir, a event client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/serve-party.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/hero-spg-salmon.jpg</video:thumbnail_loc>
+      <video:title>New MENU · Sudbury Point Grill</video:title>
+      <video:description>Healthy menu reel by NS Creative Studio for Sudbury Point Grill, a restaurant client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/spg-healthy.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/ldv-scent.jpg</video:thumbnail_loc>
+      <video:title>Scent bar experience · La Dolce Vita</video:title>
+      <video:description>Reel by NS Creative Studio for La Dolce Vita, a event client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/ldv-scent.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/prime-kitchen.jpg</video:thumbnail_loc>
+      <video:title>Kitchen deep clean · Prime Commercial Cleaning</video:title>
+      <video:description>Before &amp; after reel by NS Creative Studio for Prime Commercial Cleaning, a brand client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/prime-kitchen.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/cahari-teaser.jpg</video:thumbnail_loc>
+      <video:title>Coming soon · Cahari Beauty Spa</video:title>
+      <video:description>Grand opening teaser by NS Creative Studio for Cahari Beauty Spa, a brand client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/cahari-teaser.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/serve-grad.jpg</video:thumbnail_loc>
+      <video:title>A day with Serve&amp;Stir · Serve&amp;Stir</video:title>
+      <video:description>Event day film by NS Creative Studio for Serve&amp;Stir, a event client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/serve-grad.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/spg-function.jpg</video:thumbnail_loc>
+      <video:title>Planning an event? Say no more · Sudbury Point Grill</video:title>
+      <video:description>Private events reel by NS Creative Studio for Sudbury Point Grill, a restaurant client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/spg-function.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://nscreativestudios.com/media/spg-delivery.jpg</video:thumbnail_loc>
+      <video:title>Dinner, delivered · Sudbury Point Grill</video:title>
+      <video:description>Delivery reel by NS Creative Studio for Sudbury Point Grill, a restaurant client in Massachusetts.</video:description>
+      <video:content_loc>https://nscreativestudios.com/media/spg-delivery.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+</urlset>
