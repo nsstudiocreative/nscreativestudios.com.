@@ -32,6 +32,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link id="ns-fonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap">
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://noscriptcreative.com/#business", "name": "No Script Creative", "alternateName": ["No Script", "NS Creative Studio"], "url": "https://noscriptcreative.com/", "logo": "https://noscriptcreative.com/assets/logo-512.png", "image": "https://noscriptcreative.com/assets/og-image.jpg", "description": "No Script Creative is a Boston content production studio founded by Nayara Silva. Social media management, mobile videography and creative direction for restaurants, events and local businesses across Boston and MetroWest.", "slogan": "Real stories. Thoughtful content.", "foundingLocation": "Boston, MA", "email": "nsstudio@nscreativestudios.com", "founder": {"@id": "https://noscriptcreative.com/#nayara"}, "address": {"@type": "PostalAddress", "addressLocality": "Boston", "addressRegion": "MA", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Boston", "containedInPlace": {"@type": "State", "name": "Massachusetts"}}, {"@type": "Place", "name": "MetroWest, Massachusetts"}], "knowsAbout": ["Content creation", "Mobile videography", "Social media management", "Instagram Reels", "Restaurant marketing", "Event videography"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Social media management", "description": "We run your accounts week to week: content calendar, captions, posting, stories and community replies, so your feed stays active and on-brand."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Content creation", "description": "Photo and short-form video made for your channels: dishes, spaces, products, people and the details that make your place yours."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mobile videography", "description": "Fast, cinematic vertical video shot on mobile with stabilizers, lighting and clean audio, then edited for Reels, TikTok and Stories."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Strategic content", "description": "A content plan built on your goals: who you want to reach, what they care about, and which formats move them to act."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Creative direction", "description": "We define the look and voice of your content, from moodboards and shot lists to direction on set, so every piece feels like the same brand."}}]}, "sameAs": ["https://www.instagram.com/noscriptcreative/"]}, {"@type": "Person", "@id": "https://noscriptcreative.com/#nayara", "name": "Nayara Silva", "jobTitle": "Founder", "worksFor": {"@id": "https://noscriptcreative.com/#business"}, "image": "https://noscriptcreative.com/media/about-nayara.jpg", "url": "https://noscriptcreative.com/#about"}, {"@type": "WebSite", "@id": "https://noscriptcreative.com/#website", "name": "No Script Creative", "url": "https://noscriptcreative.com/", "inLanguage": "en-US", "publisher": {"@id": "https://noscriptcreative.com/#business"}}]}</script>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}</style>
 <style id="ns-css">
@@ -753,11 +754,13 @@ fieldset.field{border:0;margin:0;padding:0}
       </ul></div>
       <div class="rv in"><form class="form" id="ct-form" novalidate="">
         <div class="form-row"><div class="field"><label for="ct-name">Your name</label><input id="ct-name" name="name" autocomplete="name" required="" placeholder="First and last name"></div><div class="field"><label for="ct-biz">Business</label><input id="ct-biz" name="business" autocomplete="organization" placeholder="Business name"></div></div>
+        <div class="form-row"><div class="field"><label for="ct-mail">Email</label><input id="ct-mail" name="email" type="email" autocomplete="email" inputmode="email" required="" placeholder="you@business.com"></div><div class="field"><label for="ct-phone">Phone <span style="opacity:.7;font-weight:400;letter-spacing:.04em;text-transform:none">(optional)</span></label><input id="ct-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(617) 555-0123"></div></div>
         <div class="form-row"><div class="field"><label for="ct-type">Type of business</label><select id="ct-type" name="type"><option>Restaurant</option><option>Event or venue</option><option>Local business</option><option>Other</option></select></div><div class="field"><label for="ct-when">Timeline</label><select id="ct-when" name="when"><option>As soon as possible</option><option>Within a month</option><option>In 1–3 months</option><option>Just exploring</option></select></div></div>
         <fieldset class="field"><legend>What do you need?</legend><div class="ck-group"><label class="ck"><input type="checkbox" name="svc" value="Social media management" id="ct-s0"><span>Social media management</span></label><label class="ck"><input type="checkbox" name="svc" value="Content creation" id="ct-s1"><span>Content creation</span></label><label class="ck"><input type="checkbox" name="svc" value="Mobile videography" id="ct-s2"><span>Mobile videography</span></label><label class="ck"><input type="checkbox" name="svc" value="Strategic content" id="ct-s3"><span>Strategic content</span></label><label class="ck"><input type="checkbox" name="svc" value="Creative direction" id="ct-s4"><span>Creative direction</span></label></div></fieldset>
         <div class="field"><label for="ct-msg">Tell us about the project</label><textarea id="ct-msg" name="message" required="" placeholder="What you'd like to create, where it will be posted, any dates"></textarea></div>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <p class="form-err" id="ct-err" role="alert"></p>
-        <div><button class="btn btn-ink" type="submit">Prepare my message <span class="arr" aria-hidden="true">→</span></button></div>
+        <div><button class="btn btn-ink" type="submit" id="ct-send">Send my message <span class="arr" aria-hidden="true">→</span></button></div>
       </form><div id="ct-out"></div></div>
     </div>
   </div></section></main>
@@ -1058,11 +1061,13 @@ function contactHTML() {
       </ul></div>
       <div class="rv"><form class="form" id="ct-form" novalidate>
         <div class="form-row"><div class="field"><label for="ct-name">Your name</label><input id="ct-name" name="name" autocomplete="name" required placeholder="First and last name"></div><div class="field"><label for="ct-biz">Business</label><input id="ct-biz" name="business" autocomplete="organization" placeholder="Business name"></div></div>
+        <div class="form-row"><div class="field"><label for="ct-mail">Email</label><input id="ct-mail" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="you@business.com"></div><div class="field"><label for="ct-phone">Phone <span style="opacity:.7;font-weight:400;letter-spacing:.04em;text-transform:none">(optional)</span></label><input id="ct-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(617) 555-0123"></div></div>
         <div class="form-row"><div class="field"><label for="ct-type">Type of business</label><select id="ct-type" name="type"><option>Restaurant</option><option>Event or venue</option><option>Local business</option><option>Other</option></select></div><div class="field"><label for="ct-when">Timeline</label><select id="ct-when" name="when"><option>As soon as possible</option><option>Within a month</option><option>In 1–3 months</option><option>Just exploring</option></select></div></div>
         <fieldset class="field"><legend>What do you need?</legend><div class="ck-group">${svcs.map((s, i) => `<label class="ck"><input type="checkbox" name="svc" value="${esc(s)}" id="ct-s${i}"><span>${esc(s)}</span></label>`).join('')}</div></fieldset>
         <div class="field"><label for="ct-msg">Tell us about the project</label><textarea id="ct-msg" name="message" required placeholder="What you'd like to create, where it will be posted, any dates"></textarea></div>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <p class="form-err" id="ct-err" role="alert"></p>
-        <div><button class="btn btn-ink" type="submit">Prepare my message <span class="arr" aria-hidden="true">→</span></button></div>
+        <div><button class="btn btn-ink" type="submit" id="ct-send">Send my message <span class="arr" aria-hidden="true">→</span></button></div>
       </form><div id="ct-out"></div></div>
     </div>
   </div></section>`;
@@ -1347,19 +1352,37 @@ function bindTilt() {
 function bindContact() {
   $$('[data-copy]').forEach(b => b.addEventListener('click', () => copyText(b.dataset.copy, b)));
   const f = $('#ct-form'); if (!f) return;
-  f.addEventListener('submit', e => {
+  f.addEventListener('submit', async e => {
     e.preventDefault();
     const d = new FormData(f), err = $('#ct-err');
-    const name = String(d.get('name') || '').trim(), msg = String(d.get('message') || '').trim();
-    if (!name || !msg) { err.textContent = !name ? 'Add your name so we know who to reply to.' : 'Add a few lines about the project.'; (!name ? $('#ct-name') : $('#ct-msg')).focus(); return; }
+    const name = String(d.get('name') || '').trim(), msg = String(d.get('message') || '').trim(), email = String(d.get('email') || '').trim();
+    const okMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!name || !okMail || !msg) { err.textContent = !name ? 'Add your name so we know who to reply to.' : !okMail ? 'Add an email we can reply to.' : 'Add a few lines about the project.'; (!name ? $('#ct-name') : !okMail ? $('#ct-mail') : $('#ct-msg')).focus(); return; }
     err.textContent = '';
+    if (String(d.get('_honey') || '')) return;
     const c = C.contact || {}, b = C.brand || {};
-    const svcs = d.getAll('svc');
-    const text = `Project inquiry for ${b.name}\n\nName: ${name}\nBusiness: ${String(d.get('business') || '').trim() || '—'}\nType: ${d.get('type')}\nTimeline: ${d.get('when')}\nServices: ${svcs.length ? svcs.join(', ') : 'Not sure yet'}\n\n${msg}`;
+    const svcs = d.getAll('svc'), phone = String(d.get('phone') || '').trim(), biz = String(d.get('business') || '').trim();
+    const text = `Project inquiry for ${b.name}\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone || '—'}\nBusiness: ${biz || '—'}\nType: ${d.get('type')}\nTimeline: ${d.get('when')}\nServices: ${svcs.length ? svcs.join(', ') : 'Not sure yet'}\n\n${msg}`;
+    const to = c.formEmail || c.email, btn = $('#ct-send');
+    if (to && sendLead) {
+      btn.disabled = true; const label = btn.innerHTML; btn.textContent = 'Sending…';
+      const ok = await sendLead(to, { name, email, phone: phone || '—', business: biz || '—', type: d.get('type'), timeline: d.get('when'), services: svcs.length ? svcs.join(', ') : 'Not sure yet', message: msg, source: location.pathname + (location.search || ''), _subject: `New inquiry: ${biz || name} (${d.get('type')})` });
+      btn.disabled = false; btn.innerHTML = label;
+      if (ok) { if ((document.querySelector('meta[name="ns-mode"]') || {}).content === 'public') { location.href = '/thanks/'; return; } f.reset(); $('#ct-out').innerHTML = `<div class="ct-result" style="margin-top:24px"><p class="mono" style="margin:0">Message sent</p><p style="margin:0">Thanks, ${esc(name.split(' ')[0])}. We'll reply within one business day.</p></div>`; return; }
+    }
     const mail = c.email ? `mailto:${encodeURIComponent(c.email)}?subject=${encodeURIComponent('Project inquiry — ' + (String(d.get('business') || '').trim() || name))}&body=${encodeURIComponent(text)}` : '';
-    $('#ct-out').innerHTML = `<div class="ct-result" style="margin-top:24px"><p class="mono" style="margin:0">Your message is ready</p><pre id="ct-text">${esc(text)}</pre><div class="row"><button class="btn btn-ink btn-sm" type="button" id="ct-copy">Copy message</button>${mail ? `<a class="btn btn-line btn-sm" href="${esc(mail)}">Open in email app</a>` : ''}</div><p class="ct-note">${c.email ? `Send it to <strong>${esc(c.email)}</strong>. If your email app doesn't open, copy the text and paste it into a new message.` : 'Copy the text and send it to the studio.'}</p></div>`;
+    $('#ct-out').innerHTML = `<div class="ct-result" style="margin-top:24px"><p class="mono" style="margin:0">${to ? "We couldn't send it from here. Your message is ready" : 'Your message is ready'}</p><pre id="ct-text">${esc(text)}</pre><div class="row"><button class="btn btn-ink btn-sm" type="button" id="ct-copy">Copy message</button>${mail ? `<a class="btn btn-line btn-sm" href="${esc(mail)}">Open in email app</a>` : ''}</div><p class="ct-note">${c.email ? `Send it to <strong>${esc(c.email)}</strong>. If your email app doesn't open, copy the text and paste it into a new message.` : 'Copy the text and send it to the studio.'}</p></div>`;
     $('#ct-copy').addEventListener('click', ev => copyText(text, ev.currentTarget, $('#ct-text')));
   });
+}
+async function sendLead(to, fields) {
+  try {
+    const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 12000);
+    const r = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(to), { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...fields, _template: 'table', _captcha: 'false' }), signal: ctl.signal });
+    clearTimeout(t);
+    const j = await r.json().catch(() => ({}));
+    return r.ok && String(j.success) === 'true';
+  } catch (e) { return false; }
 }
 function copyText(text, btn, fallbackEl) {
   const done = ok => { if (btn) { const o = btn.textContent; btn.textContent = ok ? 'copied' : 'select and copy'; setTimeout(() => btn.textContent = o, 1600); } if (!ok && fallbackEl) { const r = document.createRange(); r.selectNodeContents(fallbackEl); const s = getSelection(); s.removeAllRanges(); s.addRange(r); } };

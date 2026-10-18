@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://noscriptcreative.com/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <image:image><image:loc>https://noscriptcreative.com/media/about-nayara.jpg</image:loc></image:image>
     <image:image><image:loc>https://noscriptcreative.com/media/cahari-facial.jpg</image:loc></image:image>
     <image:image><image:loc>https://noscriptcreative.com/media/cahari-teaser.jpg</image:loc></image:image>
@@ -103,5 +103,9 @@
       <video:content_loc>https://noscriptcreative.com/media/spg-delivery.mp4</video:content_loc>
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
+  </url>
+  <url>
+    <loc>https://noscriptcreative.com/events/</loc>
+    <lastmod>2026-10-18</lastmod>
   </url>
 </urlset>
