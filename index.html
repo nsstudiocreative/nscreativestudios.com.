@@ -1372,7 +1372,7 @@ function bindContact() {
       if (ok) { if ((document.querySelector('meta[name="ns-mode"]') || {}).content === 'public') { location.href = '/thanks/'; return; } f.reset(); $('#ct-out').innerHTML = `<div class="ct-result" style="margin-top:24px"><p class="mono" style="margin:0">Message sent</p><p style="margin:0">Thanks, ${esc(name.split(' ')[0])}. We'll reply within one business day.</p></div>`; return; }
     }
     const mail = c.email ? `mailto:${encodeURIComponent(c.email)}?subject=${encodeURIComponent('Project inquiry — ' + (String(d.get('business') || '').trim() || name))}&body=${encodeURIComponent(text)}` : '';
-    $('#ct-out').innerHTML = `<div class="ct-result" style="margin-top:24px"><p class="mono" style="margin:0">${to ? "We couldn't send it from here. Your message is ready" : 'Your message is ready'}</p><pre id="ct-text">${esc(text)}</pre><div class="row"><button class="btn btn-ink btn-sm" type="button" id="ct-copy">Copy message</button>${mail ? `<a class="btn btn-line btn-sm" href="${esc(mail)}">Open in email app</a>` : ''}</div><p class="ct-note">${c.email ? `Send it to <strong>${esc(c.email)}</strong>. If your email app doesn't open, copy the text and paste it into a new message.` : 'Copy the text and send it to the studio.'}</p></div>`;
+    $('#ct-out').innerHTML = `<div class="ct-result" style="margin-top:24px"><p class="mono" style="margin:0">${to ? "We couldn't send it from here. Your message is ready" : 'Your message is ready'}</p><pre id="ct-text">${esc(text)}</pre><div class="row"><button class="btn btn-ink btn-sm" type="button" id="ct-copy">Copy message</button>${mail ? `<a class="btn btn-line btn-sm" href="${esc(mail)}">Open in email app</a>` : ''}</div>${sendLead.why ? `<p class="ct-note" style="opacity:.7;font-size:.8rem">Details: ${esc(sendLead.why)}</p>` : ''}<p class="ct-note">${c.email ? `Send it to <strong>${esc(c.email)}</strong>. If your email app doesn't open, copy the text and paste it into a new message.` : 'Copy the text and send it to the studio.'}</p></div>`;
     $('#ct-copy').addEventListener('click', ev => copyText(text, ev.currentTarget, $('#ct-text')));
   });
 }
@@ -1382,8 +1382,9 @@ async function sendLead(to, fields) {
     const r = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(to), { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...fields, _template: 'table', _captcha: 'false' }), signal: ctl.signal });
     clearTimeout(t);
     const j = await r.json().catch(() => ({}));
-    return r.ok && String(j.success) === 'true';
-  } catch (e) { return false; }
+    if (r.ok && String(j.success) === 'true') return true;
+    sendLead.why = `${r.status}: ${j.message || 'no message'}`; return false;
+  } catch (e) { sendLead.why = String(e && e.name || e); return false; }
 }
 function copyText(text, btn, fallbackEl) {
   const done = ok => { if (btn) { const o = btn.textContent; btn.textContent = ok ? 'copied' : 'select and copy'; setTimeout(() => btn.textContent = o, 1600); } if (!ok && fallbackEl) { const r = document.createRange(); r.selectNodeContents(fallbackEl); const s = getSelection(); s.removeAllRanges(); s.addRange(r); } };

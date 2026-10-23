@@ -277,17 +277,17 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px}
     if (g('_honey')) return;
     var q = new URLSearchParams(location.search);
     var fields = { name: name, email: email, phone: g('phone') || '—', type: g('type'), date: g('date') || 'Not set', where: g('where') || '—', message: msg, source: 'Events page' + (q.get('utm_campaign') ? ' · ' + q.get('utm_campaign') : '') + (q.get('gclid') ? ' · Google Ads' : ''), _subject: 'New event inquiry: ' + name + ' (' + g('type') + ')', _template: 'table', _captcha: 'false' };
-    var label = btn.innerHTML; btn.disabled = true; btn.textContent = 'Sending…';
+    var why = ''; var label = btn.innerHTML; btn.disabled = true; btn.textContent = 'Sending…';
     var ctl = new AbortController(); var t = setTimeout(function () { ctl.abort(); }, 12000);
     fetch('https://formsubmit.co/ajax/' + encodeURIComponent(TO), { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(fields), signal: ctl.signal })
-      .then(function (r) { return r.json().then(function (j) { return r.ok && String(j.success) === 'true'; }, function () { return false; }); })
-      .catch(function () { return false; })
+      .then(function (r) { return r.json().then(function (j) { if (r.ok && String(j.success) === 'true') return true; why = r.status + ': ' + (j.message || 'no message'); return false; }, function () { why = r.status + ': unreadable reply'; return false; }); })
+      .catch(function (e) { why = String(e && e.name || e); return false; })
       .then(function (ok) {
         clearTimeout(t); btn.disabled = false; btn.innerHTML = label;
         if (ok) { location.href = '/thanks/?from=events'; return; }
         var text = 'Event inquiry for No Script Creative\n\nName: ' + name + '\nEmail: ' + email + '\nPhone: ' + fields.phone + '\nEvent: ' + fields.type + '\nDate: ' + fields.date + '\nWhere: ' + fields.where + '\n\n' + msg;
         var mail = 'mailto:' + TO + '?subject=' + encodeURIComponent(fields._subject) + '&body=' + encodeURIComponent(text);
-        document.getElementById('f-out').innerHTML = '<div class="fallback" style="margin-top:20px"><p class="mono" style="margin:0">We couldn\'t send it from here</p><pre>' + esc(text) + '</pre><div><a class="btn btn-ink" href="' + esc(mail) + '">Send it by email</a></div></div>';
+        document.getElementById('f-out').innerHTML = '<div class="fallback" style="margin-top:20px"><p class="mono" style="margin:0">We couldn\'t send it from here</p><pre>' + esc(text) + '</pre>' + (why ? '<p style="margin:0;font-size:.8rem;opacity:.75">Details: ' + esc(why) + '</p>' : '') + '<div><a class="btn btn-ink" href="' + esc(mail) + '">Send it by email</a></div></div>';
       });
   });
 })();
