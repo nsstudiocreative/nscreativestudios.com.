@@ -435,6 +435,15 @@ p{text-wrap:pretty}
 .ti-chip{position:absolute;left:6cqw;bottom:6cqw;z-index:2;background:var(--linen);color:var(--espresso);font:700 6.2cqw/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;padding:4cqw 5cqw;display:flex;align-items:center;gap:3cqw}
 .ti-chip::before{content:"";width:4cqw;height:4cqw;border-radius:50%;background:var(--terracotta)}
 @media (max-width:900px){.exp-grid{grid-template-columns:minmax(0,1fr)}.exp-stage{order:-1}}
+/* phones: iOS Safari mis-draws video inside 3D-transformed, filtered or rounded boxes, so the device scene goes flat there */
+.ph-in,.po-in,.ti-in,.sm-media,.lap-in{isolation:isolate;-webkit-mask-image:-webkit-radial-gradient(white,black);mask-image:radial-gradient(white,black)}
+@media (max-width:900px),(hover:none){
+  .exp-stage{perspective:none}
+  .scene{transform:none!important;transform-style:flat}
+  .dev{transform-style:flat;transform:translateY(calc(var(--lift,0px) * -.12)) rotateZ(var(--r,0deg));filter:none;opacity:.55}
+  .dev.on{opacity:1;z-index:3}
+  .tile{top:4%}
+}
 
 /* 08 approach */
 .sec-approach{padding-block:clamp(96px,12vw,180px)}
@@ -741,7 +750,7 @@ fieldset.field{border:0;margin:0;padding:0}
   <div class="dev laptop" data-dev="1" role="button" tabindex="-1" aria-label="Websites"><div class="lap-screen"><div class="lap-in"><div class="site-mock"><div class="sm-bar"><svg class="sym" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><path class="fr" pathLength="1" d="M56 184H16V16H56M144 16H184V184H144M16 16C16 110 184 90 184 184" stroke-width="8"></path><circle class="dot" cx="150" cy="50" r="12"></circle></svg><i></i><i></i><i></i></div><div class="sm-hero"><div class="sm-copy"><span class="sm-h">Your table is waiting.</span><i></i><i class="s"></i><span class="sm-btn"></span></div><div class="sm-media"><img class="m" src="media/still-spg-patio.jpg" alt="" loading="lazy" decoding="async"></div></div><div class="sm-row"><i></i><i></i><i></i></div></div></div></div><div class="lap-base"></div></div>
   <div class="dev poster" data-dev="2" role="button" tabindex="-1" aria-label="Campaigns"><div class="po-in"><img class="m" src="media/cahari-teaser.jpg" alt="" loading="lazy" decoding="async"><div class="po-text"><span class="mono">No Script Creative presents</span><b>Coming soon</b></div></div></div>
   <div class="dev tile" data-dev="3" role="button" tabindex="-1" aria-label="Digital"><div class="ti-in"><img class="m" src="media/spg-delivery.jpg" alt="" loading="lazy" decoding="async"><span class="ti-chip">Order online</span></div></div>
-  <div class="dev phone on" data-dev="0" role="button" tabindex="-1" aria-label="Reels"><div class="ph-shell"><div class="ph-in"><video class="m" src="media/spg-kitchen.mp4" data-poster="media/spg-kitchen.jpg" muted="" loop="" playsinline="" preload="none" data-autoplay=""></video><div class="reel-ui"><div class="reel-bars"><i></i><i></i><i></i></div><div class="reel-meta"><span class="mono">NS</span><span class="reel-label">Kitchen reel</span></div></div></div></div></div></div></div>
+  <div class="dev phone on" data-dev="0" role="button" tabindex="-1" aria-label="Reels"><div class="ph-shell"><div class="ph-in"><video class="m" src="media/spg-kitchen.mp4" data-poster="media/spg-kitchen.jpg" muted="" loop="" playsinline="" preload="none" data-autoplay="" poster="media/spg-kitchen.jpg"></video><div class="reel-ui"><div class="reel-bars"><i></i><i></i><i></i></div><div class="reel-meta"><span class="mono">NS</span><span class="reel-label">Kitchen reel</span></div></div></div></div></div></div></div>
   </div></section><section id="approach" class="sec-approach g-linen" data-tone="light"><div class="wrap ap-grid">
     <div class="ap-head"><p class="eyebrow rv in"><b>08</b><span>Our approach</span></p><h2 class="h2 split in"><span class="w"><span style="--i:0">Creative</span></span> <span class="w"><span style="--i:1">strategy,</span></span> <span class="w"><span style="--i:2"><em>trust</em></span></span> <span class="w"><span style="--i:3">and</span></span> <span class="w"><span style="--i:4">consistency.</span></span></h2><p class="lead rv in">How we work with every client, every month.</p></div>
     <ol class="ap-list"><li class="pillar rv in" style="--d:0ms"><h3>Strategy</h3><p>Every piece of content has a job: to inform, to invite or to sell. We plan around your goals and your calendar, not trends alone.</p></li><li class="pillar rv in" style="--d:60ms"><h3>Trust</h3><p>You always know what we are shooting, when it goes live and why. Drafts are shared for review, and your brand guidelines are respected on every set.</p></li><li class="pillar rv in" style="--d:120ms"><h3>Consistency</h3><p>A steady rhythm of quality content builds recognition. We keep the look, the voice and the posting schedule consistent month after month.</p></li></ol>
@@ -1340,6 +1349,8 @@ function bindExperience() {
   curTab = 0;
   $$('.tab').forEach(t => { t.addEventListener('click', () => setTab(+t.dataset.tab)); t.addEventListener('keydown', e => { if (e.key === 'ArrowRight') { e.preventDefault(); setTab(curTab + 1, true); } if (e.key === 'ArrowLeft') { e.preventDefault(); setTab(curTab - 1, true); } }); });
   $$('.dev').forEach(d => d.addEventListener('click', () => setTab(+d.dataset.dev)));
+  // the device screens are small: show their stills right away instead of waiting for the video observer
+  $$('#exp-stage video[data-poster]').forEach(v => { if (!v.poster) v.poster = v.dataset.poster; });
   setTab(0);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(setTabIndicator);
 }
