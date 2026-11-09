@@ -247,6 +247,8 @@ iframe.m{border:0;background:#000}
 .reel{width:clamp(140px,14.6vw,234px)}
 .r2{left:21%}.r3{left:43%}.r4{left:60%;top:21%}
 @media (max-width:900px){.hero-stage{height:clamp(260px,70vw,390px)}.reel{width:clamp(106px,30vw,196px)}.r1{top:12%}.r2{left:22%;top:0}.r3{left:46%;top:8%}.r4{left:auto;right:0;top:16%}}
+/* phones: cards start lower and rise half as far, so they never reach the buttons */
+@media (max-width:900px){.hero-stage{margin-top:44px}.reels{transform:translateY(calc(var(--lift,0px) * .5)) rotateX(var(--rx,4deg)) rotateY(var(--ry,-14deg))}}
 
 /* 02 about */
 .sec-about{padding-block:clamp(96px,13vw,200px)}
