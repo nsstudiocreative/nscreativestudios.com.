@@ -231,6 +231,7 @@ iframe.m{border:0;background:#000}
 .hud b{font-weight:700;color:var(--linen)}
 .marquee{border-top:1px solid rgba(243,236,226,.16);overflow:hidden;padding-block:16px;white-space:nowrap;position:relative;z-index:2}
 .mq-track{display:inline-flex;align-items:center;gap:2.2rem;padding-right:2.2rem;animation:mq 46s linear infinite;will-change:transform}
+.marquee:hover .mq-track{animation-play-state:paused}
 .mq-track span{font:400 clamp(1.2rem,1.9vw,1.6rem)/1 var(--f-display)}
 .mq-track i{width:7px;height:7px;border-radius:50%;background:var(--terracotta);flex:none}
 @keyframes mq{to{transform:translateX(-50%)}}
@@ -675,7 +676,8 @@ fieldset.field{border:0;margin:0;padding:0}
 
 @media (prefers-reduced-motion:reduce){
   html.smooth{scroll-behavior:auto}
-  .mq-track,.strip,.rec-dot,.reel-bars i::after{animation:none!important}
+  .strip,.rec-dot,.reel-bars i::after{animation:none!important}
+  .mq-track{animation-duration:90s!important}
   .strip-row{overflow-x:auto}
   .reels,.scene{transition:none}
   .menu{transition:none}.menu li a{transition:none;transform:none}
