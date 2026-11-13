@@ -9,7 +9,6 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QBLS21E6Z"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8QBLS21E6Z');</script>
 <style>html,body{margin:0;background:#f3ece2}</style>
-</head><body>
 <style>
 #nsc-briefing{
     --linen:#f3ece2; --espresso:#1e1714; --clay:#a84b2a; --terracotta:#d1774c;
@@ -90,18 +89,24 @@
 #nsc-briefing .btn-accent{color:var(--espresso)!important} #nsc-briefing .btn-primary{color:var(--linen)!important} #nsc-briefing .btn-ghost{color:var(--espresso)!important}
 #nsc-briefing .sent-ok{display:none} #nsc-briefing .sent-ok.show{display:block}
 #nsc-briefing .fallback.hidden{display:none}
+#nsc-briefing .hero-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:56px}
+#nsc-briefing .hero-top .brand{margin-bottom:0}
+#nsc-briefing .lang{display:inline-flex;border:1px solid rgba(243,236,226,.45)}
+#nsc-briefing .lang button{appearance:none;background:transparent;border:0;color:var(--sand);font:700 13px/1 var(--sans)!important;letter-spacing:.14em;padding:10px 12px;cursor:pointer;min-height:40px}
+#nsc-briefing .lang button[aria-pressed="true"]{background:var(--linen);color:var(--espresso)}
 </style>
+</head><body>
 <div id="nsc-briefing">
 <header class="hero">
   <div class="wrap">
-    <div class="brand">
-      <svg viewBox="0 0 200 200" role="img" aria-label="NoScript Creative"><path d="M56 184H16V16H56M144 16H184V184H144M16 16C16 110 184 90 184 184" fill="none" stroke-width="7"></path><circle cx="150" cy="50" r="9"></circle></svg>
-      <div class="name">NoScript <em>Creative</em></div>
+    <div class="hero-top">
+      <div class="brand"><svg viewBox="0 0 200 200" role="img" aria-label="NoScript Creative"><path d="M56 184H16V16H56M144 16H184V184H144M16 16C16 110 184 90 184 184" fill="none" stroke-width="7"></path><circle cx="150" cy="50" r="9"></circle></svg><div class="name">NoScript <em>Creative</em></div></div>
+      <div class="lang" role="group" aria-label="Language / Idioma"><button type="button" data-lang="pt" aria-pressed="false">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
     </div>
-    <div class="label">Briefing · Criação de site</div>
-    <h1>Vamos entender o seu negócio <em>antes do primeiro clique.</em></h1>
-    <p>Suas respostas nos ajudam a desenhar o site certo e a preparar uma proposta justa. Não existe resposta errada: se não souber algo, deixe em branco.</p>
-    <div class="meta"><div><b>15–20 min</b>tempo médio</div><div><b>11 blocos</b>de perguntas</div></div>
+    <div class="label" data-t="label"></div>
+    <h1 data-t="h1"></h1>
+    <p data-t="lead"></p>
+    <div class="meta"><div><b>15–20 min</b><span data-t="m1"></span></div><div><b data-t="m2b"></b><span data-t="m2"></span></div></div>
   </div>
 </header>
 
@@ -112,28 +117,23 @@
   <input type="text" name="_honey" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
 
   <div class="submit" id="submitBox">
-    <button class="btn btn-primary" type="button" id="submitBtn">Enviar briefing</button>
+    <button class="btn btn-primary" type="button" id="submitBtn" data-t="send"></button>
     <div class="err" id="err" role="alert"></div>
   </div>
 
   <div class="done" id="done">
-    <div class="sent-ok" id="sentOk">
-      <div class="label" style="color:var(--clay)">Briefing enviado</div>
-      <h2>Recebemos tudo. <em>Obrigado.</em></h2>
-      <p class="intro">Suas respostas já chegaram à NoScript Creative. Depois de analisar, voltamos com a sua proposta.</p>
-    </div>
     <div class="fallback" id="fallback">
-      <div class="label" style="color:var(--clay)">Briefing concluído</div>
-      <h2>Tudo certo. Agora é só <em>nos enviar.</em></h2>
-      <p class="intro" id="fbIntro">Escolha como enviar suas respostas para a NoScript Creative.</p>
+      <div class="label" style="color:var(--clay)" data-t="fbLabel"></div>
+      <h2 data-t="fbH"></h2>
+      <p class="intro" id="fbIntro" data-t="fbIntro"></p>
       <div class="actions">
-        <a class="btn btn-accent" id="waBtn" href="#" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
-        <button class="btn btn-primary" type="button" id="copyBtn">Copiar respostas</button>
-        <a class="btn btn-ghost" id="mailBtn" href="#">Enviar por e-mail</a>
+        <a class="btn btn-accent" id="waBtn" href="#" target="_blank" rel="noopener" data-t="wa"></a>
+        <button class="btn btn-primary" type="button" id="copyBtn" data-t="copy"></button>
+        <a class="btn btn-ghost" id="mailBtn" href="#" data-t="mail"></a>
       </div>
-      <p class="note" id="copyNote">Se algum botão não abrir no seu aparelho, copie as respostas e cole numa mensagem para nós.</p>
+      <p class="note" id="copyNote" data-t="note"></p>
       <div class="summary" id="summary"></div>
-      <p style="margin-top:20px"><button class="btn btn-ghost" type="button" id="editBtn">Voltar e editar</button></p>
+      <p style="margin-top:20px"><button class="btn btn-ghost" type="button" id="editBtn" data-t="edit"></button></p>
     </div>
   </div>
 </main>
@@ -141,109 +141,40 @@
 </div>
 <script>
 (function(){
-
-/* ---- Configuração: preencha para que os botões já cheguem até você ---- */
-// ===== CONFIGURAÇÃO =====
-// 1) Cole aqui o endereço do seu formulário Formspree (ex.: "https://formspree.io/f/abcdwxyz").
-//    Com ele preenchido, as respostas chegam direto no seu e-mail.
 const FORM_ENDPOINT = "https://formsubmit.co/ajax/nsstudio@nscreativestudios.com";
-// 2) Contatos usados no plano B (se o envio falhar ou o endereço acima estiver vazio).
-const CONTACT = { email: "nsstudio@nscreativestudios.com", whatsapp: "" }; // whatsapp: DDI + número, só dígitos (ex.: "16175550000")
-// =========================
-
-const SECTIONS = [
-  {label:"Contato", title:"Quem está <em>falando com a gente?</em>", qs:[
-    {id:"nome", q:"Seu nome", type:"text", req:true, half:true},
-    {id:"cargo", q:"Cargo ou função", type:"text", half:true},
-    {id:"email", q:"E-mail", type:"email", req:true, half:true},
-    {id:"whats", q:"WhatsApp", type:"tel", half:true},
-  ]},
-  {label:"01 · Empresa", title:"Sobre a <em>empresa</em>", qs:[
-    {id:"empresa", q:"Nome da empresa e ramo de atuação", type:"text", req:true},
-    {id:"tempo", q:"Há quanto tempo existe e quantas pessoas trabalham nela?", type:"text"},
-    {id:"oferta", q:"Quais produtos ou serviços oferece? Qual é o principal?", type:"area"},
-    {id:"diferencial", q:"O que diferencia a empresa dos concorrentes?", type:"area"},
-    {id:"tom", q:"Como a marca fala com o público?", type:"multi", opts:["Formal","Descontraída","Técnica","Acolhedora","Inspiradora","Divertida"], other:true},
-    {id:"alcance", q:"Onde a empresa atende?", type:"single", opts:["Na minha cidade/região","Em todo o país","Também no exterior"]},
-    {id:"aprovador", q:"Quem será o responsável pelo projeto e quem aprova as entregas?", type:"text"},
-  ]},
-  {label:"02 · Objetivos", title:"O que o site <em>precisa resolver?</em>", qs:[
-    {id:"porque", q:"Por que a empresa quer um site agora?", type:"area"},
-    {id:"objetivo", q:"Qual o objetivo principal do site?", hint:"Pode marcar mais de um", type:"multi", opts:["Vender online","Gerar contatos e orçamentos","Apresentar a empresa","Agendar serviços","Mostrar portfólio","Captar leads para anúncios"], other:true},
-    {id:"acao", q:"Que ação o visitante deve tomar ao entrar?", type:"multi", opts:["Chamar no WhatsApp","Ligar","Preencher formulário","Comprar","Agendar","Seguir nas redes"]},
-    {id:"siteatual", q:"Já existe um site? Se sim, qual o endereço e o que funciona ou não funciona nele?", type:"area"},
-    {id:"sucesso", q:"Como você vai saber que o site deu certo?", hint:"Ex.: número de contatos por mês, vendas, visitas", type:"area"},
-  ]},
-  {label:"03 · Público", title:"Para quem é <em>esse site?</em>", qs:[
-    {id:"cliente", q:"Quem é o seu cliente ideal?", hint:"Idade, perfil, profissão, região, empresa ou pessoa física", type:"area"},
-    {id:"dores", q:"Quais dúvidas ou problemas esse público tem antes de comprar?", type:"area"},
-    {id:"canais", q:"Como os clientes encontram vocês hoje?", type:"multi", opts:["Indicação","Google","Instagram","Facebook","TikTok","LinkedIn","Anúncios"], other:true},
-    {id:"idiomas", q:"O site precisa estar em mais de um idioma?", type:"single", opts:["Não, só português","Português e inglês","Português, inglês e espanhol"], other:true},
-  ]},
-  {label:"04 · Referências", title:"O que você <em>admira</em> (e o que não)", qs:[
-    {id:"concorrentes", q:"Quem são os 3 principais concorrentes? Cole os sites deles.", type:"area"},
-    {id:"refs", q:"Cite 2 ou 3 sites, de qualquer ramo, que você gosta. O que chama sua atenção em cada um?", type:"area"},
-    {id:"evitar", q:"Há algum estilo ou site que você não quer de jeito nenhum?", type:"area"},
-  ]},
-  {label:"05 · Identidade", title:"A cara <em>da marca</em>", qs:[
-    {id:"logo", q:"A empresa já tem logotipo?", type:"single", opts:["Sim, em vetor (AI, SVG, PDF)","Sim, só em imagem (PNG, JPG)","Não tenho","Quero renovar"]},
-    {id:"manual", q:"Existe manual de marca com cores e fontes definidas?", type:"single", opts:["Sim","Mais ou menos","Não"]},
-    {id:"estilo", q:"Que sensação o site deve transmitir?", type:"multi", opts:["Moderno","Elegante","Minimalista","Acolhedor","Ousado","Clássico","Natural","Tecnológico"], other:true},
-    {id:"fotos", q:"Você tem fotos profissionais da empresa, equipe e produtos?", type:"single", opts:["Sim, tenho bastante","Tenho algumas","Não, vou precisar de fotos","Quero incluir um ensaio/vídeo"]},
-    {id:"videos", q:"Tem vídeos que gostaria de usar no site?", type:"single", opts:["Sim","Não","Quero produzir"]},
-  ]},
-  {label:"06 · Conteúdo", title:"Páginas e <em>conteúdo</em>", qs:[
-    {id:"tipo", q:"Que tipo de site você imagina?", type:"single", opts:["Página única (landing page)","Site institucional (até 6 páginas)","Site completo (mais de 6 páginas)","Ainda não sei"]},
-    {id:"paginas", q:"Quais páginas o site deve ter?", type:"multi", opts:["Início","Sobre","Serviços/Produtos","Portfólio","Depoimentos","Blog","Perguntas frequentes","Equipe","Contato"], other:true},
-    {id:"textos", q:"Quem vai escrever os textos?", type:"single", opts:["Eu/minha equipe","Quero que a NoScript escreva","Uma parte cada"]},
-    {id:"material", q:"Os textos e materiais já estão prontos? Quando podem ser entregues?", type:"text"},
-    {id:"qtditens", q:"Quantos produtos, serviços ou projetos serão exibidos?", type:"text"},
-    {id:"autonomia", q:"Você quer atualizar o site sozinho(a) depois?", type:"single", opts:["Sim, preciso de um painel fácil","Não, prefiro que vocês cuidem","Talvez"]},
-  ]},
-  {label:"07 · Funcionalidades", title:"O que o site <em>precisa fazer?</em>", qs:[
-    {id:"funcoes", q:"Marque tudo o que o site precisa ter", type:"multi", opts:["Formulário de contato","Botão de WhatsApp","Loja virtual com pagamento","Agendamento online","Blog/notícias","Área de clientes com login","Catálogo sem venda","Galeria de fotos/vídeos","Mapa com localização","Feed do Instagram","Cadastro de e-mails","Chat/chatbot","Calculadora ou orçamento online"], other:true},
-  ]},
-  {label:"08 · Técnico", title:"Domínio, hospedagem <em>e integrações</em>", qs:[
-    {id:"dominio", q:"A empresa já tem domínio registrado (ex.: suaempresa.com.br)?", type:"single", opts:["Sim","Não","Não sei"], other:"Qual o domínio e em nome de quem está?"},
-    {id:"hospedagem", q:"Já tem hospedagem contratada?", type:"single", opts:["Sim","Não, preciso que vocês contratem","Não sei"]},
-    {id:"emails", q:"Precisa de e-mails profissionais (contato@suaempresa.com)?", type:"single", opts:["Sim","Já tenho","Não"], other:"Quantas contas?"},
-    {id:"plataforma", q:"Tem preferência de plataforma?", type:"single", opts:["WordPress","Wix","Webflow","Shopify","Sem preferência"]},
-    {id:"integracoes", q:"O site precisa se conectar a algum sistema?", type:"multi", opts:["CRM","Gateway de pagamento","Sistema de agendamento","RD Station / e-mail marketing","Google Analytics","Pixel da Meta","ERP"], other:true},
-    {id:"migracao", q:"Se existe site antigo, será preciso trazer conteúdo dele? Quanto?", type:"text"},
-  ]},
-  {label:"09 · Marketing", title:"Ser <em>encontrado</em>", qs:[
-    {id:"busca", q:"Quais palavras um cliente digitaria no Google para encontrar vocês?", type:"area"},
-    {id:"seo", q:"Que nível de SEO você precisa?", type:"single", opts:["Básico (configuração técnica)","Estratégia contínua de conteúdo","Não sei, quero orientação"]},
-    {id:"anuncios", q:"Vai rodar anúncios levando para o site?", type:"single", opts:["Sim, Google Ads","Sim, Meta Ads","Ambos","Não por enquanto"]},
-    {id:"redes", q:"Links das redes sociais e do Google Meu Negócio", type:"area"},
-  ]},
-  {label:"10 · Depois do lançamento", title:"Quem cuida <em>do site?</em>", qs:[
-    {id:"manutencao", q:"Deseja um plano mensal de manutenção?", hint:"Atualizações, backup, segurança e pequenas alterações", type:"single", opts:["Sim","Não","Quero saber mais"]},
-    {id:"treino", q:"Precisa de treinamento para usar o painel?", type:"single", opts:["Sim","Não"]},
-    {id:"frequencia", q:"Com que frequência o conteúdo será atualizado?", type:"single", opts:["Toda semana","Todo mês","Raramente"]},
-  ]},
-  {label:"11 · Prazo e investimento", title:"Prazo <em>e investimento</em>", qs:[
-    {id:"data", q:"Qual a data ideal para o site estar no ar?", type:"date", half:true},
-    {id:"evento", q:"Existe um evento ou lançamento ligado a essa data?", type:"text", half:true},
-    {id:"verba", q:"Qual faixa de investimento você prevê?", type:"single", opts:["Até US$ 1.500","US$ 1.500 – 3.000","US$ 3.000 – 6.000","Acima de US$ 6.000","Prefiro conversar"]},
-    {id:"pagamento", q:"Como prefere pagar?", type:"single", opts:["À vista","Parcelado","Por etapas do projeto"]},
-    {id:"extra", q:"Algo mais que devemos saber?", type:"area"},
-  ]},
-];
+const CONTACT = { email: "nsstudio@nscreativestudios.com", whatsapp: "" };
+const UI = {"pt": {"title": "Briefing · Criação de site | NoScript Creative", "label": "Briefing · Criação de site", "h1": "Vamos entender o seu negócio <em>antes do primeiro clique.</em>", "lead": "Suas respostas nos ajudam a desenhar o site certo e a preparar uma proposta justa. Não existe resposta errada: se não souber algo, deixe em branco.", "m1": "tempo médio", "m2b": "11 blocos", "m2": "de perguntas", "req": "Campos com <span class=\"req\">*</span> são obrigatórios.", "send": "Enviar briefing", "sending": "Enviando…", "missing": "Faltou preencher: ", "other": "Outro (especifique)", "okLabel": "Briefing enviado", "okH": "Recebemos tudo. <em>Obrigado.</em>", "okP": "Suas respostas já chegaram à NoScript Creative. Depois de analisar, voltamos com a sua proposta.", "fbLabel": "Briefing concluído", "fbH": "Tudo certo. Agora é só <em>nos enviar.</em>", "fbIntro": "Escolha como enviar suas respostas para a NoScript Creative.", "fbFail": "Não conseguimos enviar automaticamente. Use uma das opções abaixo para nos mandar suas respostas.", "wa": "Enviar pelo WhatsApp", "copy": "Copiar respostas", "copied": "Copiado", "selected": "Texto selecionado, copie", "mail": "Enviar por e-mail", "note": "Se algum botão não abrir no seu aparelho, copie as respostas e envie para <b>nsstudio@nscreativestudios.com</b>.", "edit": "Voltar e editar", "sumHead": "BRIEFING DE SITE — NOSCRIPT CREATIVE", "subject": "Briefing de site", "langName": "Português"}, "en": {"title": "Website Briefing | NoScript Creative", "label": "Briefing · Website design", "h1": "Let’s understand your business <em>before the first click.</em>", "lead": "Your answers help us design the right website and put together a fair proposal. There are no wrong answers: if you’re not sure about something, just leave it blank.", "m1": "average time", "m2b": "11 sections", "m2": "of questions", "req": "Fields marked <span class=\"req\">*</span> are required.", "send": "Send briefing", "sending": "Sending…", "missing": "Please fill in: ", "other": "Other (please specify)", "okLabel": "Briefing sent", "okH": "We got everything. <em>Thank you.</em>", "okP": "Your answers are with NoScript Creative. We’ll review them and get back to you with a proposal.", "fbLabel": "Briefing complete", "fbH": "All set. Now just <em>send it to us.</em>", "fbIntro": "Choose how to send your answers to NoScript Creative.", "fbFail": "We couldn’t send it automatically. Use one of the options below to send us your answers.", "wa": "Send via WhatsApp", "copy": "Copy answers", "copied": "Copied", "selected": "Text selected, copy it", "mail": "Send by email", "note": "If a button doesn’t open on your device, copy your answers and send them to <b>nsstudio@nscreativestudios.com</b>.", "edit": "Go back and edit", "sumHead": "WEBSITE BRIEFING — NOSCRIPT CREATIVE", "subject": "Website briefing", "langName": "English"}};
+const SECTIONS = [{"label": ["Contato", "Contact"], "title": ["Quem está <em>falando com a gente?</em>", "Who are <em>we talking to?</em>"], "qs": [{"id": "nome", "q": ["Seu nome", "Your name"], "type": "text", "req": true, "half": true}, {"id": "cargo", "q": ["Cargo ou função", "Role or job title"], "type": "text", "half": true}, {"id": "email", "q": ["E-mail", "Email"], "type": "email", "req": true, "half": true}, {"id": "whats", "q": ["WhatsApp", "Phone or WhatsApp"], "type": "tel", "half": true}]}, {"label": ["01 · Empresa", "01 · Business"], "title": ["Sobre a <em>empresa</em>", "About your <em>business</em>"], "qs": [{"id": "empresa", "q": ["Nome da empresa e ramo de atuação", "Business name and industry"], "type": "text", "req": true}, {"id": "tempo", "q": ["Há quanto tempo existe e quantas pessoas trabalham nela?", "How long has it been around, and how many people work there?"], "type": "text"}, {"id": "oferta", "q": ["Quais produtos ou serviços oferece? Qual é o principal?", "What products or services do you offer? Which one matters most?"], "type": "area"}, {"id": "diferencial", "q": ["O que diferencia a empresa dos concorrentes?", "What sets you apart from your competitors?"], "type": "area"}, {"id": "tom", "q": ["Como a marca fala com o público?", "How does your brand talk to people?"], "type": "multi", "opts": [["Formal", "Formal"], ["Descontraída", "Relaxed"], ["Técnica", "Technical"], ["Acolhedora", "Warm"], ["Inspiradora", "Inspiring"], ["Divertida", "Playful"]], "other": true}, {"id": "alcance", "q": ["Onde a empresa atende?", "Where do you serve customers?"], "type": "single", "opts": [["Na minha cidade/região", "In my city or region"], ["Em todo o país", "Across the country"], ["Também no exterior", "Internationally too"]]}, {"id": "aprovador", "q": ["Quem será o responsável pelo projeto e quem aprova as entregas?", "Who will lead the project, and who approves the work?"], "type": "text"}]}, {"label": ["02 · Objetivos", "02 · Goals"], "title": ["O que o site <em>precisa resolver?</em>", "What should the website <em>do for you?</em>"], "qs": [{"id": "porque", "q": ["Por que a empresa quer um site agora?", "Why do you want a website now?"], "type": "area"}, {"id": "objetivo", "q": ["Qual o objetivo principal do site?", "What is the main goal of the website?"], "hint": ["Pode marcar mais de um", "Choose all that apply"], "type": "multi", "opts": [["Vender online", "Sell online"], ["Gerar contatos e orçamentos", "Get inquiries and quote requests"], ["Apresentar a empresa", "Introduce the business"], ["Agendar serviços", "Take bookings"], ["Mostrar portfólio", "Show a portfolio"], ["Captar leads para anúncios", "Capture leads from ads"]], "other": true}, {"id": "acao", "q": ["Que ação o visitante deve tomar ao entrar?", "What should visitors do when they land on the site?"], "type": "multi", "opts": [["Chamar no WhatsApp", "Send a text or WhatsApp"], ["Ligar", "Call"], ["Preencher formulário", "Fill out a form"], ["Comprar", "Buy"], ["Agendar", "Book"], ["Seguir nas redes", "Follow on social media"]]}, {"id": "siteatual", "q": ["Já existe um site? Se sim, qual o endereço e o que funciona ou não funciona nele?", "Do you already have a website? If so, what’s the address, and what works or doesn’t?"], "type": "area"}, {"id": "sucesso", "q": ["Como você vai saber que o site deu certo?", "How will you know the website is working?"], "hint": ["Ex.: número de contatos por mês, vendas, visitas", "For example: inquiries per month, sales, visits"], "type": "area"}]}, {"label": ["03 · Público", "03 · Audience"], "title": ["Para quem é <em>esse site?</em>", "Who is <em>this website for?</em>"], "qs": [{"id": "cliente", "q": ["Quem é o seu cliente ideal?", "Who is your ideal customer?"], "hint": ["Idade, perfil, profissão, região, empresa ou pessoa física", "Age, profile, job, location, business or individual"], "type": "area"}, {"id": "dores", "q": ["Quais dúvidas ou problemas esse público tem antes de comprar?", "What questions or concerns do they have before buying?"], "type": "area"}, {"id": "canais", "q": ["Como os clientes encontram vocês hoje?", "How do customers find you today?"], "type": "multi", "opts": [["Indicação", "Word of mouth"], ["Google", "Google"], ["Instagram", "Instagram"], ["Facebook", "Facebook"], ["TikTok", "TikTok"], ["LinkedIn", "LinkedIn"], ["Anúncios", "Ads"]], "other": true}, {"id": "idiomas", "q": ["O site precisa estar em mais de um idioma?", "Does the website need more than one language?"], "type": "single", "opts": [["Não, só português", "No, one language is enough"], ["Português e inglês", "English and Portuguese"], ["Português, inglês e espanhol", "English, Spanish and Portuguese"]], "other": true}]}, {"label": ["04 · Referências", "04 · References"], "title": ["O que você <em>admira</em> (e o que não)", "What you <em>love</em> (and what you don’t)"], "qs": [{"id": "concorrentes", "q": ["Quem são os 3 principais concorrentes? Cole os sites deles.", "Who are your 3 main competitors? Paste their websites."], "type": "area"}, {"id": "refs", "q": ["Cite 2 ou 3 sites, de qualquer ramo, que você gosta. O que chama sua atenção em cada um?", "Name 2 or 3 websites you like, from any industry. What stands out in each one?"], "type": "area"}, {"id": "evitar", "q": ["Há algum estilo ou site que você não quer de jeito nenhum?", "Is there a style or website you definitely don’t want?"], "type": "area"}]}, {"label": ["05 · Identidade", "05 · Brand"], "title": ["A cara <em>da marca</em>", "The look of <em>your brand</em>"], "qs": [{"id": "logo", "q": ["A empresa já tem logotipo?", "Do you already have a logo?"], "type": "single", "opts": [["Sim, em vetor (AI, SVG, PDF)", "Yes, as a vector file (AI, SVG, PDF)"], ["Sim, só em imagem (PNG, JPG)", "Yes, only as an image (PNG, JPG)"], ["Não tenho", "No"], ["Quero renovar", "I’d like a new one"]]}, {"id": "manual", "q": ["Existe manual de marca com cores e fontes definidas?", "Do you have brand guidelines with set colors and fonts?"], "type": "single", "opts": [["Sim", "Yes"], ["Mais ou menos", "Sort of"], ["Não", "No"]]}, {"id": "estilo", "q": ["Que sensação o site deve transmitir?", "How should the website feel?"], "type": "multi", "opts": [["Moderno", "Modern"], ["Elegante", "Elegant"], ["Minimalista", "Minimal"], ["Acolhedor", "Welcoming"], ["Ousado", "Bold"], ["Clássico", "Classic"], ["Natural", "Natural"], ["Tecnológico", "Tech-forward"]], "other": true}, {"id": "fotos", "q": ["Você tem fotos profissionais da empresa, equipe e produtos?", "Do you have professional photos of your business, team and products?"], "type": "single", "opts": [["Sim, tenho bastante", "Yes, plenty"], ["Tenho algumas", "A few"], ["Não, vou precisar de fotos", "No, I’ll need photos"], ["Quero incluir um ensaio/vídeo", "I’d like to add a photo or video shoot"]]}, {"id": "videos", "q": ["Tem vídeos que gostaria de usar no site?", "Do you have videos you’d like to use on the site?"], "type": "single", "opts": [["Sim", "Yes"], ["Não", "No"], ["Quero produzir", "I’d like to make some"]]}]}, {"label": ["06 · Conteúdo", "06 · Content"], "title": ["Páginas e <em>conteúdo</em>", "Pages and <em>content</em>"], "qs": [{"id": "tipo", "q": ["Que tipo de site você imagina?", "What kind of website do you have in mind?"], "type": "single", "opts": [["Página única (landing page)", "One page (landing page)"], ["Site institucional (até 6 páginas)", "Business website (up to 6 pages)"], ["Site completo (mais de 6 páginas)", "Full website (more than 6 pages)"], ["Ainda não sei", "Not sure yet"]]}, {"id": "paginas", "q": ["Quais páginas o site deve ter?", "Which pages should the website have?"], "type": "multi", "opts": [["Início", "Home"], ["Sobre", "About"], ["Serviços/Produtos", "Services/Products"], ["Portfólio", "Portfolio"], ["Depoimentos", "Testimonials"], ["Blog", "Blog"], ["Perguntas frequentes", "FAQ"], ["Equipe", "Team"], ["Contato", "Contact"]], "other": true}, {"id": "textos", "q": ["Quem vai escrever os textos?", "Who will write the copy?"], "type": "single", "opts": [["Eu/minha equipe", "Me or my team"], ["Quero que a NoScript escreva", "I’d like NoScript to write it"], ["Uma parte cada", "A bit of both"]]}, {"id": "material", "q": ["Os textos e materiais já estão prontos? Quando podem ser entregues?", "Is the copy and material ready? When can you send it?"], "type": "text"}, {"id": "qtditens", "q": ["Quantos produtos, serviços ou projetos serão exibidos?", "How many products, services or projects will be shown?"], "type": "text"}, {"id": "autonomia", "q": ["Você quer atualizar o site sozinho(a) depois?", "Do you want to update the website yourself later?"], "type": "single", "opts": [["Sim, preciso de um painel fácil", "Yes, I need an easy editor"], ["Não, prefiro que vocês cuidem", "No, I’d rather you handle it"], ["Talvez", "Maybe"]]}]}, {"label": ["07 · Funcionalidades", "07 · Features"], "title": ["O que o site <em>precisa fazer?</em>", "What does the website <em>need to do?</em>"], "qs": [{"id": "funcoes", "q": ["Marque tudo o que o site precisa ter", "Choose everything the website needs"], "type": "multi", "opts": [["Formulário de contato", "Contact form"], ["Botão de WhatsApp", "Text or WhatsApp button"], ["Loja virtual com pagamento", "Online store with checkout"], ["Agendamento online", "Online booking"], ["Blog/notícias", "Blog or news"], ["Área de clientes com login", "Client login area"], ["Catálogo sem venda", "Catalog without checkout"], ["Galeria de fotos/vídeos", "Photo or video gallery"], ["Mapa com localização", "Map and location"], ["Feed do Instagram", "Instagram feed"], ["Cadastro de e-mails", "Email sign-up"], ["Chat/chatbot", "Chat or chatbot"], ["Calculadora ou orçamento online", "Online quote or calculator"]], "other": true}]}, {"label": ["08 · Técnico", "08 · Technical"], "title": ["Domínio, hospedagem <em>e integrações</em>", "Domain, hosting <em>and integrations</em>"], "qs": [{"id": "dominio", "q": ["A empresa já tem domínio registrado (ex.: suaempresa.com.br)?", "Do you already own a domain (e.g. yourbusiness.com)?"], "type": "single", "opts": [["Sim", "Yes"], ["Não", "No"], ["Não sei", "Not sure"]], "other": ["Qual o domínio e em nome de quem está?", "Which domain, and whose name is it under?"]}, {"id": "hospedagem", "q": ["Já tem hospedagem contratada?", "Do you already have web hosting?"], "type": "single", "opts": [["Sim", "Yes"], ["Não, preciso que vocês contratem", "No, I need you to set it up"], ["Não sei", "Not sure"]]}, {"id": "emails", "q": ["Precisa de e-mails profissionais (contato@suaempresa.com)?", "Do you need business email addresses (hello@yourbusiness.com)?"], "type": "single", "opts": [["Sim", "Yes"], ["Já tenho", "I already have them"], ["Não", "No"]], "other": ["Quantas contas?", "How many accounts?"]}, {"id": "plataforma", "q": ["Tem preferência de plataforma?", "Do you have a preferred platform?"], "type": "single", "opts": [["WordPress", "WordPress"], ["Wix", "Wix"], ["Webflow", "Webflow"], ["Shopify", "Shopify"], ["Sem preferência", "No preference"]]}, {"id": "integracoes", "q": ["O site precisa se conectar a algum sistema?", "Does the website need to connect to other tools?"], "type": "multi", "opts": [["CRM", "CRM"], ["Gateway de pagamento", "Payment processor"], ["Sistema de agendamento", "Booking system"], ["RD Station / e-mail marketing", "Email marketing (Mailchimp, Klaviyo…)"], ["Google Analytics", "Google Analytics"], ["Pixel da Meta", "Meta Pixel"], ["ERP", "ERP or accounting"]], "other": true}, {"id": "migracao", "q": ["Se existe site antigo, será preciso trazer conteúdo dele? Quanto?", "If you have an old website, should we move content from it? How much?"], "type": "text"}]}, {"label": ["09 · Marketing", "09 · Marketing"], "title": ["Ser <em>encontrado</em>", "Getting <em>found</em>"], "qs": [{"id": "busca", "q": ["Quais palavras um cliente digitaria no Google para encontrar vocês?", "What would a customer type into Google to find you?"], "type": "area"}, {"id": "seo", "q": ["Que nível de SEO você precisa?", "What level of SEO do you need?"], "type": "single", "opts": [["Básico (configuração técnica)", "Basic (technical setup)"], ["Estratégia contínua de conteúdo", "Ongoing content strategy"], ["Não sei, quero orientação", "Not sure, I’d like advice"]]}, {"id": "anuncios", "q": ["Vai rodar anúncios levando para o site?", "Will you run ads that send people to the website?"], "type": "single", "opts": [["Sim, Google Ads", "Yes, Google Ads"], ["Sim, Meta Ads", "Yes, Meta Ads"], ["Ambos", "Both"], ["Não por enquanto", "Not for now"]]}, {"id": "redes", "q": ["Links das redes sociais e do Google Meu Negócio", "Links to your social media and Google Business Profile"], "type": "area"}]}, {"label": ["10 · Depois do lançamento", "10 · After launch"], "title": ["Quem cuida <em>do site?</em>", "Who takes care <em>of the website?</em>"], "qs": [{"id": "manutencao", "q": ["Deseja um plano mensal de manutenção?", "Would you like a monthly maintenance plan?"], "hint": ["Atualizações, backup, segurança e pequenas alterações", "Updates, backups, security and small changes"], "type": "single", "opts": [["Sim", "Yes"], ["Não", "No"], ["Quero saber mais", "Tell me more"]]}, {"id": "treino", "q": ["Precisa de treinamento para usar o painel?", "Do you need training to use the editor?"], "type": "single", "opts": [["Sim", "Yes"], ["Não", "No"]]}, {"id": "frequencia", "q": ["Com que frequência o conteúdo será atualizado?", "How often will the content be updated?"], "type": "single", "opts": [["Toda semana", "Every week"], ["Todo mês", "Every month"], ["Raramente", "Rarely"]]}]}, {"label": ["11 · Prazo e investimento", "11 · Timeline and budget"], "title": ["Prazo <em>e investimento</em>", "Timeline <em>and budget</em>"], "qs": [{"id": "data", "q": ["Qual a data ideal para o site estar no ar?", "When would you ideally like the website to launch?"], "type": "date", "half": true}, {"id": "evento", "q": ["Existe um evento ou lançamento ligado a essa data?", "Is there an event or launch tied to that date?"], "type": "text", "half": true}, {"id": "verba", "q": ["Qual faixa de investimento você prevê?", "What budget range do you have in mind?"], "type": "single", "opts": [["Até US$ 1.500", "Up to $1,500"], ["US$ 1.500 – 3.000", "$1,500 – $3,000"], ["US$ 3.000 – 6.000", "$3,000 – $6,000"], ["Acima de US$ 6.000", "Over $6,000"], ["Prefiro conversar", "I’d rather talk about it"]]}, {"id": "pagamento", "q": ["Como prefere pagar?", "How would you prefer to pay?"], "type": "single", "opts": [["À vista", "In full"], ["Parcelado", "In installments"], ["Por etapas do projeto", "By project milestone"]]}, {"id": "extra", "q": ["Algo mais que devemos saber?", "Anything else we should know?"], "type": "area"}]}];
 
 const root = document.getElementById("nsc-briefing");
 const form = document.getElementById("form");
 const KEY = "nsc-briefing-site-v1";
+const IDX = { pt: 0, en: 1 };
 let saved = {};
 try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e) {}
 
+// language: ?lang=en in the link wins, then the last choice, then the browser language
+let lang = (new URLSearchParams(location.search).get("lang") || "").toLowerCase();
+if (!UI[lang]) { try { lang = localStorage.getItem(KEY + "-lang") || ""; } catch(e) {} }
+if (!UI[lang]) lang = /^pt/i.test(navigator.language || "") ? "pt" : "en";
+
+const T = k => UI[lang][k];
+const L = v => Array.isArray(v) ? v[IDX[lang]] : v;
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+function applyLang(){
+  document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+  document.title = T("title");
+  root.querySelectorAll("[data-t]").forEach(el => { el.innerHTML = T(el.dataset.t); });
+  root.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  try { localStorage.setItem(KEY + "-lang", lang); } catch(e) {}
+}
 
 function render(){
   let html = "";
   SECTIONS.forEach((s, si) => {
-    html += `<section><div class="label">${s.label}</div><h2>${s.title}</h2>`;
-    if (si === 0) html += `<p class="intro">Campos com <span class="req">*</span> são obrigatórios.</p>`; else html += `<div style="height:20px"></div>`;
+    html += `<section><div class="label">${L(s.label)}</div><h2>${L(s.title)}</h2>`;
+    if (si === 0) html += `<p class="intro">${T("req")}</p>`; else html += `<div style="height:20px"></div>`;
     let open = false;
     s.qs.forEach((q, qi) => {
       if (q.half && !open) { html += `<div class="row2">`; open = true; }
@@ -259,23 +190,23 @@ function render(){
 
 function field(q){
   const req = q.req ? ' <span class="req">*</span>' : "";
-  const hint = q.hint ? `<span class="hint">${esc(q.hint)}</span>` : "";
+  const hint = q.hint ? `<span class="hint">${esc(L(q.hint))}</span>` : "";
   const v = saved[q.id];
-  if (q.type === "text" || q.type === "email" || q.type === "tel" || q.type === "date") {
-    return `<div class="q"><label for="${q.id}">${esc(q.q)}${req}${hint}</label><input type="${q.type}" id="${q.id}" name="${q.id}" value="${esc(v||"")}"${q.req?" required":""}></div>`;
+  if (["text","email","tel","date"].includes(q.type)) {
+    return `<div class="q"><label for="${q.id}">${esc(L(q.q))}${req}${hint}</label><input type="${q.type}" id="${q.id}" name="${q.id}" value="${esc(v||"")}"${q.req?" required":""}></div>`;
   }
   if (q.type === "area") {
-    return `<div class="q"><label for="${q.id}">${esc(q.q)}${req}${hint}</label><textarea id="${q.id}" name="${q.id}">${esc(v||"")}</textarea></div>`;
+    return `<div class="q"><label for="${q.id}">${esc(L(q.q))}${req}${hint}</label><textarea id="${q.id}" name="${q.id}">${esc(v||"")}</textarea></div>`;
   }
   const kind = q.type === "multi" ? "checkbox" : "radio";
   const vals = Array.isArray(v) ? v : (v ? [v] : []);
-  let o = `<div class="q" role="group" aria-labelledby="t_${q.id}"><div class="qt" id="t_${q.id}">${esc(q.q)}${req}${hint}</div><div class="opts">`;
+  let o = `<div class="q" role="group" aria-labelledby="t_${q.id}"><div class="qt" id="t_${q.id}">${esc(L(q.q))}${req}${hint}</div><div class="opts">`;
   q.opts.forEach(opt => {
-    o += `<label class="opt"><input type="${kind}" name="${q.id}" value="${esc(opt)}"${vals.includes(opt)?" checked":""}><span>${esc(opt)}</span></label>`;
+    o += `<label class="opt"><input type="${kind}" name="${q.id}" value="${esc(opt[0])}"${vals.includes(opt[0])?" checked":""}><span>${esc(L(opt))}</span></label>`;
   });
   o += `</div>`;
   if (q.other) {
-    const ph = typeof q.other === "string" ? q.other : "Outro (especifique)";
+    const ph = Array.isArray(q.other) ? L(q.other) : T("other");
     o += `<input class="other" type="text" name="${q.id}__outro" placeholder="${esc(ph)}" value="${esc(saved[q.id+"__outro"]||"")}">`;
   }
   return o + `</div>`;
@@ -302,55 +233,62 @@ function progress(){
   const p = Math.round(done/total*100);
   document.getElementById("barFill").style.width = p + "%";
   document.getElementById("pct").textContent = p + "%";
+  saved = d;
   try { localStorage.setItem(KEY, JSON.stringify(d)); } catch(e) {}
 }
 
+// answer text in the current language (stored values are the Portuguese option text)
+function shown(q, d){
+  let v = d[q.id];
+  if (q.opts) { const map = o => { const f = q.opts.find(x => x[0] === o); return f ? L(f) : o; }; v = Array.isArray(v) ? v.map(map).join(", ") : (v ? map(v) : ""); }
+  const o = d[q.id+"__outro"]; if (o) v = v ? `${v} (${o})` : o;
+  return v;
+}
+
 function summaryText(d){
-  let out = "BRIEFING DE SITE — NOSCRIPT CREATIVE\n";
+  let out = T("sumHead") + "\n";
   SECTIONS.forEach(s => {
     const lines = [];
-    s.qs.forEach(q => {
-      let v = d[q.id]; if (Array.isArray(v)) v = v.join(", ");
-      const o = d[q.id+"__outro"];
-      if (o) v = v ? `${v} (${o})` : o;
-      if (v) lines.push(`• ${q.q}\n  ${v}`);
-    });
-    if (lines.length) out += `\n— ${s.label.toUpperCase()} —\n` + lines.join("\n") + "\n";
+    s.qs.forEach(q => { const v = shown(q, d); if (v) lines.push(`• ${L(q.q)}\n  ${v}`); });
+    if (lines.length) out += `\n— ${L(s.label).toUpperCase()} —\n` + lines.join("\n") + "\n";
   });
   return out.trim();
 }
 
-render(); progress();
+function setLang(l){
+  if (!UI[l] || l === lang) return;
+  progress(); lang = l; applyLang(); render(); progress();
+}
+
+applyLang(); render(); progress();
 form.addEventListener("input", progress);
 form.addEventListener("change", progress);
 form.addEventListener("submit", e => e.preventDefault());
+root.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
 
-function showDone(sent){
+function showDone(){
   form.classList.add("hidden"); document.getElementById("submitBox").classList.add("hidden");
   root.querySelector(".progress").classList.add("hidden");
-  document.getElementById("sentOk").classList.toggle("show", sent);
-  document.getElementById("fallback").classList.toggle("hidden", sent);
   const done = document.getElementById("done"); done.classList.add("show");
   done.scrollIntoView({behavior:"smooth"});
 }
 
 function prepareFallback(d, text){
   document.getElementById("summary").textContent = text;
-  const subj = `Briefing de site — ${d.empresa || d.nome}`;
+  const subj = `${T("subject")} — ${d.empresa || d.nome}`;
   const enc = encodeURIComponent(text);
   const wa = document.getElementById("waBtn");
   if (CONTACT.whatsapp) wa.href = `https://wa.me/${CONTACT.whatsapp}?text=${enc}`; else wa.style.display = "none";
   document.getElementById("mailBtn").href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(subj)}&body=${enc}`;
-  if (CONTACT.email) document.getElementById("copyNote").innerHTML = `Se algum botão não abrir no seu aparelho, copie as respostas e envie para <b>${esc(CONTACT.email)}</b>.`;
 }
 
 document.getElementById("submitBtn").addEventListener("click", async () => {
   const d = collect(); const err = document.getElementById("err"); const btn = document.getElementById("submitBtn");
   if (document.getElementById("hp").value) return;
   const missing = [];
-  SECTIONS.forEach(s => s.qs.forEach(q => { if (q.req && !d[q.id]) missing.push(q.q); }));
+  SECTIONS.forEach(s => s.qs.forEach(q => { if (q.req && !d[q.id]) missing.push(L(q.q)); }));
   if (missing.length) {
-    err.textContent = "Faltou preencher: " + missing.join(", ") + ".";
+    err.textContent = T("missing") + missing.join(", ") + ".";
     const first = SECTIONS.flatMap(s=>s.qs).find(q => q.req && !d[q.id]);
     const el = document.getElementById(first.id); if (el) { el.scrollIntoView({behavior:"smooth", block:"center"}); el.focus({preventScroll:true}); }
     return;
@@ -358,39 +296,33 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
   err.textContent = "";
   const text = summaryText(d);
   prepareFallback(d, text);
-  if (!FORM_ENDPOINT) { showDone(false); return; }
 
-  btn.disabled = true; btn.textContent = "Enviando…";
-  // Formspree recebe um campo por pergunta (rótulo legível) + o resumo completo
-  const payload = { _subject: `Briefing de site — ${d.empresa || d.nome}`, _template: "box", _captcha: "false", email: d.email, "Resumo": text };
-  SECTIONS.forEach(s => s.qs.forEach(q => {
-    let v = d[q.id]; if (Array.isArray(v)) v = v.join(", ");
-    const o = d[q.id+"__outro"]; if (o) v = v ? `${v} (${o})` : o;
-    if (v) payload[`${s.label} — ${q.q}`] = v;
-  }));
+  btn.disabled = true; btn.textContent = T("sending");
+  const payload = { _subject: `${T("subject")} — ${d.empresa || d.nome}`, _template: "box", _captcha: "false", email: d.email, "Idioma / Language": T("langName"), "Resumo": text };
+  SECTIONS.forEach(s => s.qs.forEach(q => { const v = shown(q, d); if (v) payload[`${L(s.label)} — ${L(q.q)}`] = v; }));
   try {
     const r = await fetch(FORM_ENDPOINT, { method:"POST", headers:{ "Content-Type":"application/json", "Accept":"application/json" }, body: JSON.stringify(payload) });
     const j = await r.json().catch(() => ({}));
     if (!r.ok || !(j.success === true || j.success === "true")) throw new Error("status " + r.status);
     try { localStorage.removeItem(KEY); } catch(e) {}
-    location.href = "/briefing/obrigado/";
+    location.href = "/briefing/obrigado/" + (lang === "en" ? "?lang=en" : "");
     return;
   } catch(e) {
-    document.getElementById("fbIntro").textContent = "Não conseguimos enviar automaticamente. Use uma das opções abaixo para nos mandar suas respostas.";
-    showDone(false);
+    document.getElementById("fbIntro").textContent = T("fbFail");
+    showDone();
   } finally {
-    btn.disabled = false; btn.textContent = "Enviar briefing";
+    btn.disabled = false; btn.textContent = T("send");
   }
 });
 
 document.getElementById("copyBtn").addEventListener("click", async (e) => {
   const btn = e.currentTarget;
-  try { await navigator.clipboard.writeText(document.getElementById("summary").textContent); btn.textContent = "Copiado"; }
+  try { await navigator.clipboard.writeText(document.getElementById("summary").textContent); btn.textContent = T("copied"); }
   catch(_) {
     const r = document.createRange(); r.selectNodeContents(document.getElementById("summary"));
-    const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Texto selecionado, copie";
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = T("selected");
   }
-  setTimeout(()=>btn.textContent="Copiar respostas", 2500);
+  setTimeout(()=>btn.textContent=T("copy"), 2500);
 });
 
 document.getElementById("editBtn").addEventListener("click", () => {
@@ -399,7 +331,6 @@ document.getElementById("editBtn").addEventListener("click", () => {
   document.getElementById("done").classList.remove("show");
   root.scrollIntoView({behavior:"smooth"});
 });
-
 })();
 </script>
 </body></html>
